@@ -1,14 +1,13 @@
 #### Software & Library
 
 * Arduino IDE
-* Library RC522 : https://github.com/Martinsos/arduino-lib-hc-sr04
+* Serial Bluetooth Terminal
+* Library RC522 : https://github.com/miguelbalboa/rfid
 
 #### Kebutuhan Hardware
 
 * nodeMCU-ESP32
-* Sensor: 
-  * 1x HC-SR04 Ultrasonic (sensor jarak) 
-  * 1x LDR (sensor cahaya)
-* 2x LED
+* RFID-RC522
+* 1x LED
 * Kabel Jumper
 * Project Board
