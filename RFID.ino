@@ -12,16 +12,11 @@
 #define RST_PIN   22
 #define led       13
 
-//used in authentication
-MFRC522::MIFARE_Key key;
-//authentication return status code
-MFRC522::StatusCode status;
 // Defined pins to module RC522
 MFRC522 mfrc522(SS_PIN, RST_PIN); 
 
 
 BluetoothSerial SerialBT;
-String pesan="";
 
 void setup() 
 {
@@ -32,8 +27,6 @@ void setup()
   
   // Init MFRC522
   mfrc522.PCD_Init(); 
-
-  Serial.println("The device started, now you can pair it with bluetooth!");
  
 }
 
@@ -61,15 +54,20 @@ void loop()
       SerialBT.println(UID);
       mfrc522.PICC_HaltA();
 
-      if(UID == " 7a ae c1 16" && kondisi == "Lampu mati"  ){
-        digitalWrite(led,HIGH);
-        kondisi = "Lampu nyala";
-        Serial.println(kondisi);
-      }else{
-        digitalWrite(led,LOW);
-        kondisi = "Lampu mati";
-        Serial.println(kondisi);
-      }    
+      if(UID == " 7a ae c1 16"){
+        if(kondisi == "Lampu mati"){
+          digitalWrite(led,HIGH);
+          kondisi = "Lampu nyala";
+          Serial.println(kondisi);
+        }else{
+          digitalWrite(led,LOW);
+          kondisi = "Lampu mati";
+          Serial.println(kondisi);
+        }
+      }  
+       
     }
+    
   }
+  
 }
